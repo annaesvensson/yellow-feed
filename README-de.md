@@ -1,0 +1,94 @@
+<p align="right"><a href="README-de.md">Deutsch</a> &nbsp; <a href="README.md">English</a> &nbsp; <a href="README-sv.md">Svenska</a></p>
+
+# Feed 0.8.14
+
+Feed mit letzten Änderungen.
+
+<p align="center"><img src="feed-screenshot.png?raw=true" alt="Bildschirmfoto"></p>
+
+## Wie man einen Feed benutzt
+
+Der Feed ist auf deiner Webseite vorhanden als `http://website/feed/` und `http://website/feed/page:feed.xml`. Es ist ein Feed für die gesamte Webseite, nur sichtbare Seiten sind enthalten.
+
+## Wie man einen Feed anpasst
+
+Falls du nicht die gesamte Webseite im Feed auflisten willst, kannst du unterschiedliche Filter benutzen um den Feed anzupassen. Um einen Feed fürs Wiki zu machen, öffne die Datei `system/extensions/yellow-system.ini` und ändere `FeedFilterLayout: wiki`. Um einen Feed fürs Blog zu machen, öffne die Systemeinstellungen und ändere `FeedFilterLayout: blog`.
+
+## Beispiele
+
+Inhaltsdatei mit Link zum Feed:
+
+    ---
+    Title: Beispielseite
+    ---
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut 
+    labore et dolore magna pizza. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+    nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit 
+    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt 
+    in culpa qui officia deserunt mollit anim id est laborum.
+    
+    [Letzte Änderungen anzeigen](/feed/). 
+    [RSS-Feed](/feed/page:feed.xml).
+
+Inhaltsdatei mit Link zum Feed, von einem bestimmter Autor:
+
+    ---
+    Title: Beispielseite
+    ---
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut 
+    labore et dolore magna pizza. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+    nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit 
+    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt 
+    in culpa qui officia deserunt mollit anim id est laborum.
+    
+    [Letzte Änderungen von Datenstrom anzeigen](/feed/author:datenstrom/). 
+    [RSS-Feed](/feed/author:datenstrom/page:feed.xml).
+
+Inhaltsdatei mit Link zum Feed, für einen bestimmten Tag:
+
+    ---
+    Title: Beispielseite
+    ---
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut 
+    labore et dolore magna pizza. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+    nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit 
+    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt 
+    in culpa qui officia deserunt mollit anim id est laborum.
+    
+    [Letzte Änderungen für Beispiel anzeigen](/feed/tag:beispiel/). 
+    [RSS-Feed](/feed/tag:beispiel/page:feed.xml).
+
+Inhaltsdatei mit Link zum Feed, in einen bestimmten Verzeichnis:
+
+    ---
+    Title: Beispielseite
+    ---
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut 
+    labore et dolore magna pizza. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+    nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit 
+    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt 
+    in culpa qui officia deserunt mollit anim id est laborum.
+    
+    [Letzte Änderungen in Hilfe anzeigen](/feed/folder:help/). 
+    [RSS-Feed](/feed/folder:help/page:feed.xml).
+
+## Einstellungen
+
+Die folgenden Einstellungen können in der Datei `system/extensions/yellow-system.ini` vorgenommen werden:
+
+`FeedLocation` = Ort des Feed  
+`FeedFileXml` = Dateiname für RSS-Feed  
+`FeedFilterLayout` = Filter für ein bestimmtes Layout, `none` um zu deaktivieren  
+`FeedPaginationLimit` = Anzahl der Einträge pro Seite, 0 für unbegrenzt  
+
+Die folgenden Dateien können angepasst werden:
+
+`system/layouts/feed.html` = Layoutdatei für Feed  
+
+## Installation
+
+[Erweiterung herunterladen](https://github.com/datenstrom/yellow-extensions/raw/master/downloads/feed.zip) und die Zip-Datei in dein `system/extensions`-Verzeichnis kopieren. Rechtsklick bei Safari.
+
+## Entwickler
+
+Datenstrom. [Hilfe finden](https://datenstrom.se/de/yellow/help/).
