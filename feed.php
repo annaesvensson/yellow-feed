@@ -1,5 +1,5 @@
 <?php
-// Feed extension, https://github.com/datenstrom/yellow-extensions/tree/master/source/feed
+// Feed extension, https://github.com/annaesvensson/yellow-feed
 
 class YellowFeed {
     const VERSION = "0.8.14";

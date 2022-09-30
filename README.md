@@ -87,7 +87,7 @@ The following files can be customised:
 
 ## Installation
 
-[Download extension](https://github.com/datenstrom/yellow-extensions/raw/master/downloads/feed.zip) and copy zip file into your `system/extensions` folder. Right click if you use Safari.
+[Download extension](https://github.com/annaesvensson/yellow-feed/archive/main.zip) and copy zip file into your `system/extensions` folder. Right click if you use Safari.
 
 ## Developer
 

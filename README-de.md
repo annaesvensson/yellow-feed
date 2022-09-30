@@ -87,7 +87,7 @@ Die folgenden Dateien können angepasst werden:
 
 ## Installation
 
-[Erweiterung herunterladen](https://github.com/datenstrom/yellow-extensions/raw/master/downloads/feed.zip) und die Zip-Datei in dein `system/extensions`-Verzeichnis kopieren. Rechtsklick bei Safari.
+[Erweiterung herunterladen](https://github.com/annaesvensson/yellow-feed/archive/main.zip) und die Zip-Datei in dein `system/extensions`-Verzeichnis kopieren. Rechtsklick bei Safari.
 
 ## Entwickler
 
