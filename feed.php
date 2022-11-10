@@ -2,7 +2,7 @@
 // Feed extension, https://github.com/annaesvensson/yellow-feed
 
 class YellowFeed {
-    const VERSION = "0.8.15";
+    const VERSION = "0.8.16";
     public $yellow;         // access to API
     
     // Handle initialisation
@@ -89,7 +89,7 @@ class YellowFeed {
         $output = null;
         if ($name=="header") {
             $locationFeed = $this->yellow->system->get("coreServerBase").$this->yellow->system->get("feedLocation");
-            $locationFeed .= $this->yellow->toolbox->normaliseArguments("page:".$this->yellow->system->get("feedFileXml"), false);
+            $locationFeed .= $this->yellow->lookup->normaliseArguments("page:".$this->yellow->system->get("feedFileXml"), false);
             $output = "<link rel=\"alternate\" type=\"application/rss+xml\" href=\"$locationFeed\" />\n";
         }
         return $output;
