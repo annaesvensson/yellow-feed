@@ -6,6 +6,10 @@ Feed med senaste ändringarna
 
 <p align="center"><img src="feed-screenshot.png?raw=true" alt="Skärmdump"></p>
 
+## Hur man installerar ett tillägg
+
+[Ladda ner ZIP-filen](https://github.com/annaesvensson/yellow-feed/archive/main.zip) och kopiera den till din `system/extensions` mapp. [Läs mer om tillägg](https://github.com/annaesvensson/yellow-update/tree/main/README-sv.md).
+
 ## Hur man använder en feed
 
 Feeden finns tillgängligt på din webbplats som `http://website/feed/` och `http://website/feed/page:feed.xml`. Det är en feed för hela webbplatsen, endast synliga sidor ingår.
@@ -84,10 +88,6 @@ Följande inställningar kan konfigureras i filen `system/extensions/yellow-syst
 Följande filer kan anpassas:
 
 `system/layouts/feed.html` = layoutfil för feed  
-
-## Installation
-
-[Ladda ner tillägg](https://github.com/annaesvensson/yellow-feed/archive/main.zip) och kopiera ZIP-fil till din `system/extensions` mapp. [Läs mer om tillägg](https://github.com/annaesvensson/yellow-update/tree/main/README-sv.md).
 
 ## Utvecklare
 

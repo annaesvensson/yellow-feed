@@ -6,6 +6,10 @@ Feed with recent changes.
 
 <p align="center"><img src="feed-screenshot.png?raw=true" alt="Screenshot"></p>
 
+## How to install an extension
+
+[Download ZIP file](https://github.com/annaesvensson/yellow-feed/archive/main.zip) and copy it into your `system/extensions` folder. [Learn more about extensions](https://github.com/annaesvensson/yellow-update).
+
 ## How to use a feed
 
 The feed is available on your website as `http://website/feed/` and `http://website/feed/page:feed.xml`. It's a feed for the entire website, only visible pages are included.
@@ -84,10 +88,6 @@ The following settings can be configured in file `system/extensions/yellow-syste
 The following files can be customised:
 
 `system/layouts/feed.html` = layout file for feed  
-
-## Installation
-
-[Download extension](https://github.com/annaesvensson/yellow-feed/archive/main.zip) and copy ZIP file into your `system/extensions` folder. [Learn more about extensions](https://github.com/annaesvensson/yellow-update).
 
 ## Developer
 
