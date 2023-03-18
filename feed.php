@@ -2,7 +2,7 @@
 // Feed extension, https://github.com/annaesvensson/yellow-feed
 
 class YellowFeed {
-    const VERSION = "0.8.16";
+    const VERSION = "0.8.17";
     public $yellow;         // access to API
     
     // Handle initialisation
@@ -40,9 +40,9 @@ class YellowFeed {
             $chronologicalOrder = ($this->yellow->system->get("feedFilterLayout")!="blog");
             if ($this->isRequestXml($page)) {
                 $pages->sort($chronologicalOrder ? "modified" : "published", false);
-                $entriesMax = $this->yellow->system->get("feedPaginationLimit");
-                if ($entriesMax==0 || $entriesMax>100) $entriesMax = 100;
-                $pages->limit($entriesMax);
+                $paginationLimit = $this->yellow->system->get("feedPaginationLimit");
+                if ($paginationLimit==0 || $paginationLimit>100) $paginationLimit = 100;
+                $pages->limit($paginationLimit);
                 $title = !is_array_empty($pagesFilter) ? implode(" ", $pagesFilter)." - ".$this->yellow->page->get("sitename") : $this->yellow->page->get("sitename");
                 $this->yellow->page->setLastModified($pages->getModified());
                 $this->yellow->page->setHeader("Content-Type", "application/rss+xml; charset=utf-8");
