@@ -2,7 +2,7 @@
 // Feed extension, https://github.com/annaesvensson/yellow-feed
 
 class YellowFeed {
-    const VERSION = "0.8.17";
+    const VERSION = "0.8.18";
     public $yellow;         // access to API
     
     // Handle initialisation
@@ -10,7 +10,6 @@ class YellowFeed {
         $this->yellow = $yellow;
         $this->yellow->system->setDefault("feedLocation", "/feed/");
         $this->yellow->system->setDefault("feedFileXml", "feed.xml");
-        $this->yellow->system->setDefault("feedFilterLayout", "none");
         $this->yellow->system->setDefault("feedPaginationLimit", "30");
     }
 
@@ -35,11 +34,12 @@ class YellowFeed {
                 $pages->match("#".$page->getRequest("folder")."#i", false);
                 array_push($pagesFilter, ucfirst($page->getRequest("folder")));
             }
-            $feedFilterLayout = $this->yellow->system->get("feedFilterLayout");
-            if ($feedFilterLayout!="none") $pages->filter("layout", $feedFilterLayout);
-            $chronologicalOrder = ($this->yellow->system->get("feedFilterLayout")!="blog");
+            foreach ($pages as $pageFeed) {
+                $feedScore = $pageFeed->get($pageFeed->isExisting("published") ? "published" : "modified");
+                $pageFeed->set("feedScore", $feedScore);
+            }
+            $pages->sort("feedScore", false);
             if ($this->isRequestXml($page)) {
-                $pages->sort($chronologicalOrder ? "modified" : "published", false);
                 $paginationLimit = $this->yellow->system->get("feedPaginationLimit");
                 if ($paginationLimit==0 || $paginationLimit>100) $paginationLimit = 100;
                 $pages->limit($paginationLimit);
@@ -54,7 +54,7 @@ class YellowFeed {
                 $output .= "<description>".$this->yellow->page->getHtml("description")."</description>\r\n";
                 $output .= "<language>".$this->yellow->page->getHtml("language")."</language>\r\n";
                 foreach ($pages as $pageFeed) {
-                    $timestamp = strtotime($pageFeed->get($chronologicalOrder ? "modified" : "published"));
+                    $timestamp = strtotime($pageFeed->get($pageFeed->isExisting("published") ? "published" : "modified"));
                     $content = $this->yellow->toolbox->createTextDescription($pageFeed->getContent(), 0, false, "<!--more-->", "<a href=\"".$pageFeed->getUrl()."\">".$this->yellow->language->getTextHtml("blogMore")."</a>");
                     $output .= "<item>\r\n";
                     $output .= "<title>".$pageFeed->getHtml("title")."</title>\r\n";
@@ -70,14 +70,12 @@ class YellowFeed {
                 $output .= "</rss>\r\n";
                 $this->yellow->page->setOutput($output);
             } else {
-                $pages->sort($chronologicalOrder ? "modified" : "published", false);
                 if (!is_array_empty($pagesFilter)) {
                     $text = implode(" ", $pagesFilter);
                     $this->yellow->page->set("titleHeader", $text." - ".$this->yellow->page->get("sitename"));
                     $this->yellow->page->set("titleContent", $this->yellow->page->get("title").": ".$text);
                     $this->yellow->page->set("title", $this->yellow->page->get("title").": ".$text);
                 }
-                $this->yellow->page->set("feedChronologicalOrder", $chronologicalOrder);
                 $this->yellow->page->setPages("feed", $pages);
                 $this->yellow->page->setLastModified($pages->getModified());
             }

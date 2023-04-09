@@ -1,6 +1,6 @@
 <p align="right"><a href="README-de.md">Deutsch</a> &nbsp; <a href="README.md">English</a> &nbsp; <a href="README-sv.md">Svenska</a></p>
 
-# Feed 0.8.17
+# Feed 0.8.18
 
 Feed mit letzten Änderungen.
 
@@ -16,7 +16,7 @@ Der Feed ist auf deiner Webseite vorhanden als `http://website/feed/` und `http:
 
 ## Wie man einen Feed anpasst
 
-Falls du nicht die gesamte Webseite im Feed auflisten willst, kannst du unterschiedliche Filter benutzen um den Feed anzupassen. Um einen Feed fürs Wiki zu machen, öffne die Datei `system/extensions/yellow-system.ini` und ändere `FeedFilterLayout: wiki`. Um einen Feed fürs Blog zu machen, öffne die Systemeinstellungen und ändere `FeedFilterLayout: blog`.
+Falls du nicht die gesamte Webseite im Feed auflisten willst, kannst du unterschiedliche Filter benutzen um den Feed anzupassen. Der Filter `author:` zeigt Seiten von einem bestimmten Autor. Der Filter `language:` zeigt Seiten in einer bestimmten Sprache. Der Filter `tag:` zeigt Seiten mit einem bestimmten Tag. Der Filter `folder:` zeigt Seiten in einem bestimmten Verzeichnis. 
 
 ## Beispiele
 
@@ -82,7 +82,6 @@ Die folgenden Einstellungen können in der Datei `system/extensions/yellow-syste
 
 `FeedLocation` = Ort des Feed  
 `FeedFileXml` = Dateiname für RSS-Feed  
-`FeedFilterLayout` = Filter für ein bestimmtes Layout, `none` um zu deaktivieren  
 `FeedPaginationLimit` = Anzahl der Einträge pro Seite, 0 für unbegrenzt  
 
 Die folgenden Dateien können angepasst werden:

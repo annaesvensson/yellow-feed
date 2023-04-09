@@ -5,11 +5,7 @@
 <ul>
 <?php $section = $sectionNew = "" ?>
 <?php foreach ($this->yellow->page->getPages("feed")->paginate($this->yellow->system->get("feedPaginationLimit")) as $page): ?>
-<?php if ($this->yellow->page->get("feedChronologicalOrder")): ?>
-<?php $sectionNew = $page->getDateHtml("modified") ?>
-<?php else: ?>
-<?php $sectionNew = $page->getDateHtml("published") ?>
-<?php endif ?>
+<?php $sectionNew = $page->getDateHtml($page->isExisting("published") ? "published" : "modified") ?>
 <?php if ($section!=$sectionNew) { $section = $sectionNew; echo "</ul><h2>$section</h2><ul>\n"; } ?>
 <li><a href="<?php echo $page->getLocation(true) ?>"><?php echo $page->getHtml("title") ?></a></li>
 <?php endforeach ?>
