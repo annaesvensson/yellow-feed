@@ -2,15 +2,16 @@
 <div class="content">
 <div class="main" role="main">
 <h1><?php echo $this->yellow->page->getHtml("titleContent") ?></h1>
+<?php $pages = $this->yellow->page->getPages("feed")->paginate($this->yellow->system->get("feedPaginationLimit")) ?>
 <ul>
 <?php $section = $sectionNew = "" ?>
-<?php foreach ($this->yellow->page->getPages("feed")->paginate($this->yellow->system->get("feedPaginationLimit")) as $page): ?>
+<?php foreach ($pages as $page): ?>
 <?php $sectionNew = $page->getDateHtml($page->isExisting("published") ? "published" : "modified") ?>
 <?php if ($section!=$sectionNew) { $section = $sectionNew; echo "</ul><h2>$section</h2><ul>\n"; } ?>
 <li><a href="<?php echo $page->getLocation(true) ?>"><?php echo $page->getHtml("title") ?></a></li>
 <?php endforeach ?>
 </ul>
-<?php $this->yellow->layout("pagination", $this->yellow->page->getPages("feed")) ?>
+<?php $this->yellow->layout("pagination", $pages) ?>
 </div>
 </div>
 <?php $this->yellow->layout("footer") ?>
