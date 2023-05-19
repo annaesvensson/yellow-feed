@@ -2,7 +2,7 @@
 // Feed extension, https://github.com/annaesvensson/yellow-feed
 
 class YellowFeed {
-    const VERSION = "0.8.18";
+    const VERSION = "0.8.19";
     public $yellow;         // access to API
     
     // Handle initialisation
@@ -55,7 +55,7 @@ class YellowFeed {
                 $output .= "<language>".$this->yellow->page->getHtml("language")."</language>\r\n";
                 foreach ($pages as $pageFeed) {
                     $timestamp = strtotime($pageFeed->get($pageFeed->isExisting("published") ? "published" : "modified"));
-                    $content = $this->yellow->toolbox->createTextDescription($pageFeed->getContent(), 0, false, "<!--more-->", "<a href=\"".$pageFeed->getUrl()."\">".$this->yellow->language->getTextHtml("blogMore")."</a>");
+                    $content = $this->yellow->toolbox->createTextDescription($pageFeed->getContentHtml(), 0, false, "<!--more-->", "<a href=\"".$pageFeed->getUrl()."\">".$this->yellow->language->getTextHtml("blogMore")."</a>");
                     $output .= "<item>\r\n";
                     $output .= "<title>".$pageFeed->getHtml("title")."</title>\r\n";
                     $output .= "<link>".$pageFeed->getUrl()."</link>\r\n";
