@@ -3,14 +3,14 @@
 <div class="main" role="main">
 <h1><?php echo $this->yellow->page->getHtml("titleContent") ?></h1>
 <?php $pages = $this->yellow->page->getPages("feed")->paginate($this->yellow->system->get("feedPaginationLimit")) ?>
+<?php foreach ($pages->group("feedGroup", false, "Y-m-d") as $group=>$collection): ?>
+<h2><?php echo htmlspecialchars($this->yellow->lookup->normaliseDate($group)) ?></h2>
 <ul>
-<?php $section = $sectionNew = "" ?>
-<?php foreach ($pages as $page): ?>
-<?php $sectionNew = $page->getDateHtml($page->isExisting("published") ? "published" : "modified") ?>
-<?php if ($section!=$sectionNew) { $section = $sectionNew; echo "</ul><h2>$section</h2><ul>\n"; } ?>
+<?php foreach ($collection as $page): ?>
 <li><a href="<?php echo $page->getLocation(true) ?>"><?php echo $page->getHtml("title") ?></a></li>
 <?php endforeach ?>
 </ul>
+<?php endforeach ?>
 <?php $this->yellow->layout("pagination", $pages) ?>
 </div>
 </div>

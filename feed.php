@@ -2,7 +2,7 @@
 // Feed extension, https://github.com/annaesvensson/yellow-feed
 
 class YellowFeed {
-    const VERSION = "0.8.20";
+    const VERSION = "0.8.21";
     public $yellow;         // access to API
     
     // Handle initialisation
@@ -35,10 +35,10 @@ class YellowFeed {
                 array_push($pagesFilter, ucfirst($page->getRequest("folder")));
             }
             foreach ($pages as $pageFeed) {
-                $feedScore = $pageFeed->get($pageFeed->isExisting("published") ? "published" : "modified");
-                $pageFeed->set("feedScore", $feedScore);
+                $feedGroup = $pageFeed->get($pageFeed->isExisting("published") ? "published" : "modified");
+                $pageFeed->set("feedGroup", $feedGroup);
             }
-            $pages->sort("feedScore", false);
+            $pages->sort("feedGroup", false);
             if ($this->isRequestXml($page)) {
                 $paginationLimit = $this->yellow->system->get("feedPaginationLimit");
                 if ($paginationLimit==0 || $paginationLimit>100) $paginationLimit = 100;
