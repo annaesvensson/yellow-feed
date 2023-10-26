@@ -4,7 +4,7 @@
 <h1><?php echo $this->yellow->page->getHtml("titleContent") ?></h1>
 <?php $pages = $this->yellow->page->getPages("feed")->paginate($this->yellow->system->get("feedPaginationLimit")) ?>
 <?php foreach ($pages->group("feedGroup", false, "Y-m-d") as $group=>$collection): ?>
-<h2><?php echo htmlspecialchars($this->yellow->lookup->normaliseDate($group)) ?></h2>
+<h2><?php echo htmlspecialchars($this->yellow->language->getDateStandard($group)) ?></h2>
 <ul>
 <?php foreach ($collection as $page): ?>
 <li><a href="<?php echo $page->getLocation(true) ?>"><?php echo $page->getHtml("title") ?></a></li>
