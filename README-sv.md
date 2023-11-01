@@ -14,6 +14,8 @@ Feed med senaste ändringarna
 
 Feeden finns tillgängligt på din webbplats som `http://website/feed/` och `http://website/feed/page:feed.xml`. Det är en feed för hela webbplatsen, endast synliga sidor ingår.
 
+Om du inte vill att en sida ska synas, ställ in `Status: unlisted` i [sidinställningar](https://github.com/annaesvensson/yellow-core/tree/main/README-sv.md#inställningar-page) högst upp på en sida.
+
 ## Hur man anpassar en feed
 
 Om du inte vill lista hela webbplatsen i feeden, kan du använda olika filter för att anpassa feeden. Filtret `author:` visar sidor av en specifik författare. Filtret `language:` visar sidor på ett specifikt språk. Filtret `tag:` visar sidor med en specifik tagg. Filtret `folder:` visar sidor i en specifik mapp.
@@ -76,6 +78,22 @@ Innehållsfil med länk till feed, i en specifik mapp:
     [Se senaste ändringarna i hjälp](/feed/folder:help/). 
     [RSS feed](/feed/folder:help/page:feed.xml).
 
+Layoutfil med ytterligare metadata för blogg feed:
+
+    <!DOCTYPE html>
+    <html lang="<?php echo $this->yellow->page->getHtml("language") ?>">
+    <head>
+    <title><?php echo $this->yellow->page->getHtml("titleHeader") ?></title>
+    <meta charset="utf-8" />
+    <meta name="description" content="<?php echo $this->yellow->page->getHtml("description") ?>" />
+    <meta name="author" content="<?php echo $this->yellow->page->getHtml("author") ?>" />
+    <meta name="generator" content="Datenstrom Yellow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="alternate" type="application/rss+xml" href="<?php echo $this->yellow->page->getBase(true)."/feed/folder:blog/page:feed.xml" ?>" />
+    <?php echo $this->yellow->page->getExtraHtml("header") ?>
+    </head>
+    ...
+
 ## Inställningar
 
 Följande inställningar kan konfigureras i filen `system/extensions/yellow-system.ini`:
@@ -87,6 +105,7 @@ Följande inställningar kan konfigureras i filen `system/extensions/yellow-syst
 Följande filer kan anpassas:
 
 `system/layouts/feed.html` = layoutfil för feed  
+`system/layouts/header.html` = layoutfil för standard HTML-header  
 
 ## Utvecklare
 

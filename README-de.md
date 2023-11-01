@@ -14,6 +14,8 @@ Feed mit letzten Änderungen.
 
 Der Feed ist auf deiner Webseite vorhanden als `http://website/feed/` und `http://website/feed/page:feed.xml`. Es ist ein Feed für die gesamte Webseite, nur sichtbare Seiten sind enthalten.
 
+Falls du nicht willst dass eine Seite sichtbar ist, kannst du `Status: unlisted` in den [Seiteneinstellungen](https://github.com/annaesvensson/yellow-core/tree/main/README-de.md#einstellungen-seite) ganz oben auf einer Seite festlegen.
+
 ## Wie man einen Feed anpasst
 
 Falls du nicht die gesamte Webseite im Feed auflisten willst, kannst du unterschiedliche Filter benutzen um den Feed anzupassen. Der Filter `author:` zeigt Seiten von einem bestimmten Autor. Der Filter `language:` zeigt Seiten in einer bestimmten Sprache. Der Filter `tag:` zeigt Seiten mit einem bestimmten Tag. Der Filter `folder:` zeigt Seiten in einem bestimmten Verzeichnis. 
@@ -76,6 +78,22 @@ Inhaltsdatei mit Link zum Feed, in einen bestimmten Verzeichnis:
     [Letzte Änderungen in Hilfe anzeigen](/feed/folder:help/). 
     [RSS-Feed](/feed/folder:help/page:feed.xml).
 
+Layoutdatei mit zusätzlichen Metadaten für Blog-Feed:
+
+    <!DOCTYPE html>
+    <html lang="<?php echo $this->yellow->page->getHtml("language") ?>">
+    <head>
+    <title><?php echo $this->yellow->page->getHtml("titleHeader") ?></title>
+    <meta charset="utf-8" />
+    <meta name="description" content="<?php echo $this->yellow->page->getHtml("description") ?>" />
+    <meta name="author" content="<?php echo $this->yellow->page->getHtml("author") ?>" />
+    <meta name="generator" content="Datenstrom Yellow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="alternate" type="application/rss+xml" href="<?php echo $this->yellow->page->getBase(true)."/feed/folder:blog/page:feed.xml" ?>" />
+    <?php echo $this->yellow->page->getExtraHtml("header") ?>
+    </head>
+    ...
+
 ## Einstellungen
 
 Die folgenden Einstellungen können in der Datei `system/extensions/yellow-system.ini` vorgenommen werden:
@@ -87,6 +105,7 @@ Die folgenden Einstellungen können in der Datei `system/extensions/yellow-syste
 Die folgenden Dateien können angepasst werden:
 
 `system/layouts/feed.html` = Layoutdatei für Feed  
+`system/layouts/header.html` = Layoutdatei für Standard-HTML-Header  
 
 ## Entwickler
 
