@@ -1,6 +1,6 @@
 <p align="right"><a href="README-de.md">Deutsch</a> &nbsp; <a href="README.md">English</a> &nbsp; <a href="README-sv.md">Svenska</a></p>
 
-# Feed 0.8.22
+# Feed 0.8.23
 
 Feed mit letzten Änderungen.
 
@@ -78,7 +78,7 @@ Inhaltsdatei mit Link zum Feed, in einen bestimmten Verzeichnis:
     [Letzte Änderungen in Hilfe anzeigen](/feed/folder:help/). 
     [RSS-Feed](/feed/folder:help/page:feed.xml).
 
-Layoutdatei mit zusätzlichen Metadaten für Blog-Feed:
+Layoutdatei mit Link zum Feed, in einen bestimmten Verzeichnis:
 
     <!DOCTYPE html>
     <html lang="<?php echo $this->yellow->page->getHtml("language") ?>">
@@ -89,8 +89,8 @@ Layoutdatei mit zusätzlichen Metadaten für Blog-Feed:
     <meta name="author" content="<?php echo $this->yellow->page->getHtml("author") ?>" />
     <meta name="generator" content="Datenstrom Yellow" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="alternate" type="application/rss+xml" href="<?php echo $this->yellow->page->getBase(true)."/feed/folder:blog/page:feed.xml" ?>" />
     <?php echo $this->yellow->page->getExtraHtml("header") ?>
+    <link rel="alternate" type="application/rss+xml" href="<?php echo $this->yellow->page->getBase(true)."/feed/folder:help/page:feed.xml" ?>" title="<?php echo "Hilfe - ".$this->yellow->page->getHtml("sitename") ?>" />
     </head>
     ...
 
