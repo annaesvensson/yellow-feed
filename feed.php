@@ -2,7 +2,7 @@
 // Feed extension, https://github.com/annaesvensson/yellow-feed
 
 class YellowFeed {
-    const VERSION = "0.8.23";
+    const VERSION = "0.8.24";
     public $yellow;         // access to API
     
     // Handle initialisation
@@ -31,7 +31,7 @@ class YellowFeed {
                 array_push($pagesFilter, $pages->getFilter());
             }
             if ($page->isRequest("folder")) {
-                $pages->match("#/".$page->getRequest("folder")."/#i");
+                $pages->match("#/[\d\-\_\.]+".$page->getRequest("folder")."#i", false);
                 array_push($pagesFilter, ucfirst($page->getRequest("folder")));
             }
             foreach ($pages as $pageFeed) {
