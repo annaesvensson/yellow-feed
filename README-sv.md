@@ -18,7 +18,7 @@ Om du inte vill att en sida ska synas, ställ in `Status: unlisted` i [sidinstä
 
 ## Hur man anpassar en feed
 
-Om du inte vill lista hela webbplatsen i feeden, kan du använda olika filter för att anpassa feeden. För att skapa en bloggfeed öppna filen `system/extensions/yellow-system.ini` och ändra `FeedRecentChanges: blog`. För att skapa en wikifeed ändra `FeedRecentChanges: wiki, wiki-start`.
+Om du inte vill lista hela webbplatsen i feeden, kan du använda olika filter för att anpassa feeden. Du kan också ändra definitionen av senaste ändringarna. För att skapa en bloggfeed öppna filen `system/extensions/yellow-system.ini` och ändra `FeedRecentChanges: blog`. För att skapa en wikifeed öppna filen `system/extensions/yellow-system.ini` och ändra `FeedRecentChanges: wiki, wiki-start`.
 
 ## Exempel
 
@@ -97,6 +97,7 @@ Layoutfil med länk till feed, i en specifik mapp:
 Konfigurera olika filter i inställningar:
 
 ```
+FeedRecentChanges: auto
 FeedRecentChanges: blog
 FeedRecentChanges: blog, podcast, stream
 FeedRecentChanges: wiki, wiki-start
@@ -109,7 +110,7 @@ Följande inställningar kan konfigureras i filen `system/extensions/yellow-syst
 `FeedLocation` = plats för feed  
 `FeedFileXml` = filnamn för RSS feed  
 `FeedPaginationLimit` = antal inlägg att visa per sida, 0 för obegränsad  
-`FeedRecentChanges` = layouter att visa i feeden, kommaseparerade  
+`FeedRecentChanges` = layouter att visa i feeden, `auto` för automatisk detektering, kommaseparerade  
 
 Följande filer kan anpassas:
 
