@@ -18,7 +18,7 @@ If you don't want that a page is visible, set `Status: unlisted` in the [page se
 
 ## How to customise a feed
 
-If you don't want to list the entire website in a feed, you can use different filters to customise a feed. You can also change the definition of recent changes on your website. To make a blog feed open file `system/extensions/yellow-system.ini` and change `FeedRecentChanges: blog`. To make a wiki feed change `FeedRecentChanges: wiki, wiki-start`.
+If you don't want to list the entire website in a feed, you can use different filters to customise a feed. You can also change the definition of recent changes. To make a blog feed open file `system/extensions/yellow-system.ini` and change `FeedRecentChanges: blog`. To make a wiki feed open file `system/extensions/yellow-system.ini` and change `FeedRecentChanges: wiki, wiki-start`.
 
 ## Examples
 
@@ -97,6 +97,7 @@ Layout file with link to feed, in a specific folder:
 Configuring different filters in the settings:
 
 ```
+FeedRecentChanges: auto
 FeedRecentChanges: blog
 FeedRecentChanges: blog, podcast, stream
 FeedRecentChanges: wiki, wiki-start
@@ -109,7 +110,7 @@ The following settings can be configured in file `system/extensions/yellow-syste
 `FeedLocation` = feed location  
 `FeedFileXml` = file name for RSS feed  
 `FeedPaginationLimit` = number of entries to show per page, 0 for unlimited  
-`FeedRecentChanges` = layout(s) to show in the feed, comma separated  
+`FeedRecentChanges` = layout(s) to show in the feed, `auto` for automatic detection, comma separated  
 
 The following files can be customised:
 
