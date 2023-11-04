@@ -18,7 +18,7 @@ Falls du nicht willst dass eine Seite sichtbar ist, kannst du `Status: unlisted`
 
 ## Wie man einen Feed anpasst
 
-Falls du nicht die gesamte Webseite im Feed auflisten willst, kannst du unterschiedliche Filter benutzen um den Feed anzupassen. Du kannst auch die Definition von letzten Änderungen auf deiner Website ändern. Um einen Blog-Feed zu machen, öffne die Datei `system/extensions/yellow-system.ini` und ändere `FeedRecentChanges: blog`. Um einen Wiki-Feed zu machen, ändere `FeedRecentChanges: wiki, wiki-start`. 
+Falls du nicht die gesamte Webseite im Feed auflisten willst, kannst du unterschiedliche Filter benutzen um den Feed anzupassen. Du kannst auch die Definition von letzten Änderungen ändern. Um einen Blog-Feed zu machen, öffne die Datei `system/extensions/yellow-system.ini` und ändere `FeedRecentChanges: blog`. Um einen Wiki-Feed zu machen, öffne die Datei `system/extensions/yellow-system.ini` und ändere `FeedRecentChanges: wiki, wiki-start`. 
 
 ## Beispiele
 
@@ -97,6 +97,7 @@ Layoutdatei mit Link zum Feed, in einen bestimmten Verzeichnis:
 Verschiedene Filter in den Einstellungen festlegen:
 
 ```
+FeedRecentChanges: auto
 FeedRecentChanges: blog
 FeedRecentChanges: blog, podcast, stream
 FeedRecentChanges: wiki, wiki-start
@@ -109,7 +110,7 @@ Die folgenden Einstellungen können in der Datei `system/extensions/yellow-syste
 `FeedLocation` = Ort des Feed  
 `FeedFileXml` = Dateiname für RSS-Feed  
 `FeedPaginationLimit` = Anzahl der Einträge pro Seite, 0 für unbegrenzt  
-`FeedRecentChanges` = Layouts die im Feed angezeigt werden, durch Komma getrennt   
+`FeedRecentChanges` = Layouts im Feed, `auto` für automatische Erkennung, durch Komma getrennt   
 
 Die folgenden Dateien können angepasst werden:
 
