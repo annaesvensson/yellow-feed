@@ -1,6 +1,6 @@
 <p align="right"><a href="README-de.md">Deutsch</a> &nbsp; <a href="README.md">English</a> &nbsp; <a href="README-sv.md">Svenska</a></p>
 
-# Feed 0.8.24
+# Feed 0.8.25
 
 Feed with recent changes.
 
@@ -18,7 +18,7 @@ If you don't want that a page is visible, set `Status: unlisted` in the [page se
 
 ## How to customise a feed
 
-If you don't want to list the entire website in a feed, you can use different filters to customise a feed. The `author:` filter shows pages by a specific author. The `language:` filter shows pages in a specific language. The `tag:` filter shows pages with a specific tag. The `folder:` shows finds pages in a specific folder. 
+If you don't want to list the entire website in a feed, you can use different filters to customise a feed. You can also change the definition of recent changes on your website. To make a blog feed open file `system/extensions/yellow-system.ini` and change `FeedRecentChanges: blog`. To make a wiki feed change `FeedRecentChanges: wiki, wiki-start`.
 
 ## Examples
 
@@ -94,6 +94,14 @@ Layout file with link to feed, in a specific folder:
     </head>
     ...
 
+Configuring different filters in the settings:
+
+```
+FeedRecentChanges: blog
+FeedRecentChanges: blog, podcast, stream
+FeedRecentChanges: wiki, wiki-start
+```
+
 ## Settings
 
 The following settings can be configured in file `system/extensions/yellow-system.ini`:
@@ -101,6 +109,7 @@ The following settings can be configured in file `system/extensions/yellow-syste
 `FeedLocation` = feed location  
 `FeedFileXml` = file name for RSS feed  
 `FeedPaginationLimit` = number of entries to show per page, 0 for unlimited  
+`FeedRecentChanges` = layout(s) to show in the feed, comma separated  
 
 The following files can be customised:
 

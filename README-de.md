@@ -1,6 +1,6 @@
 <p align="right"><a href="README-de.md">Deutsch</a> &nbsp; <a href="README.md">English</a> &nbsp; <a href="README-sv.md">Svenska</a></p>
 
-# Feed 0.8.24
+# Feed 0.8.25
 
 Feed mit letzten Änderungen.
 
@@ -18,7 +18,7 @@ Falls du nicht willst dass eine Seite sichtbar ist, kannst du `Status: unlisted`
 
 ## Wie man einen Feed anpasst
 
-Falls du nicht die gesamte Webseite im Feed auflisten willst, kannst du unterschiedliche Filter benutzen um den Feed anzupassen. Der Filter `author:` zeigt Seiten von einem bestimmten Autor. Der Filter `language:` zeigt Seiten in einer bestimmten Sprache. Der Filter `tag:` zeigt Seiten mit einem bestimmten Tag. Der Filter `folder:` zeigt Seiten in einem bestimmten Verzeichnis. 
+Falls du nicht die gesamte Webseite im Feed auflisten willst, kannst du unterschiedliche Filter benutzen um den Feed anzupassen. Du kannst auch die Definition von letzten Änderungen auf deiner Website ändern. Um einen Blog-Feed zu machen, öffne die Datei `system/extensions/yellow-system.ini` und ändere `FeedRecentChanges: blog`. Um einen Wiki-Feed zu machen, ändere `FeedRecentChanges: wiki, wiki-start`. 
 
 ## Beispiele
 
@@ -94,6 +94,14 @@ Layoutdatei mit Link zum Feed, in einen bestimmten Verzeichnis:
     </head>
     ...
 
+Verschiedene Filter in den Einstellungen festlegen:
+
+```
+FeedRecentChanges: blog
+FeedRecentChanges: blog, podcast, stream
+FeedRecentChanges: wiki, wiki-start
+```
+
 ## Einstellungen
 
 Die folgenden Einstellungen können in der Datei `system/extensions/yellow-system.ini` vorgenommen werden:
@@ -101,6 +109,7 @@ Die folgenden Einstellungen können in der Datei `system/extensions/yellow-syste
 `FeedLocation` = Ort des Feed  
 `FeedFileXml` = Dateiname für RSS-Feed  
 `FeedPaginationLimit` = Anzahl der Einträge pro Seite, 0 für unbegrenzt  
+`FeedRecentChanges` = Layouts die im Feed angezeigt werden, durch Komma getrennt   
 
 Die folgenden Dateien können angepasst werden:
 

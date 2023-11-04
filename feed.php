@@ -2,7 +2,7 @@
 // Feed extension, https://github.com/annaesvensson/yellow-feed
 
 class YellowFeed {
-    const VERSION = "0.8.24";
+    const VERSION = "0.8.25";
     public $yellow;         // access to API
     
     // Handle initialisation
@@ -11,12 +11,20 @@ class YellowFeed {
         $this->yellow->system->setDefault("feedLocation", "/feed/");
         $this->yellow->system->setDefault("feedFileXml", "feed.xml");
         $this->yellow->system->setDefault("feedPaginationLimit", "30");
+        $this->yellow->system->setDefault("feedRecentChanges", "auto");
     }
 
     // Handle page layout
     public function onParsePageLayout($page, $name) {
         if ($name=="feed") {
             $pages = $this->yellow->content->index(false, false);
+            if ($this->yellow->system->get("feedRecentChanges")!="auto") {
+                $layouts = preg_split("/\s*,\s*/", $this->yellow->system->get("feedRecentChanges"));
+                foreach ($pages as $pageFeed) {
+                    $pageFeed->set("feedRecentChanges", in_array($pageFeed->get("layout"), $layouts) ? "show" : "hide");
+                }
+                $pages->filter("feedRecentChanges", "show");
+            }
             $pagesFilter = array();
             if ($page->isRequest("tag")) {
                 $pages->filter("tag", $page->getRequest("tag"));

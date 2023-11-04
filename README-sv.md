@@ -1,6 +1,6 @@
 <p align="right"><a href="README-de.md">Deutsch</a> &nbsp; <a href="README.md">English</a> &nbsp; <a href="README-sv.md">Svenska</a></p>
 
-# Feed 0.8.24
+# Feed 0.8.25
 
 Feed med senaste ändringarna
 
@@ -18,7 +18,7 @@ Om du inte vill att en sida ska synas, ställ in `Status: unlisted` i [sidinstä
 
 ## Hur man anpassar en feed
 
-Om du inte vill lista hela webbplatsen i feeden, kan du använda olika filter för att anpassa feeden. Filtret `author:` visar sidor av en specifik författare. Filtret `language:` visar sidor på ett specifikt språk. Filtret `tag:` visar sidor med en specifik tagg. Filtret `folder:` visar sidor i en specifik mapp.
+Om du inte vill lista hela webbplatsen i feeden, kan du använda olika filter för att anpassa feeden. För att skapa en bloggfeed öppna filen `system/extensions/yellow-system.ini` och ändra `FeedRecentChanges: blog`. För att skapa en wikifeed ändra `FeedRecentChanges: wiki, wiki-start`.
 
 ## Exempel
 
@@ -94,6 +94,14 @@ Layoutfil med länk till feed, i en specifik mapp:
     </head>
     ...
 
+Konfigurera olika filter i inställningar:
+
+```
+FeedRecentChanges: blog
+FeedRecentChanges: blog, podcast, stream
+FeedRecentChanges: wiki, wiki-start
+```
+
 ## Inställningar
 
 Följande inställningar kan konfigureras i filen `system/extensions/yellow-system.ini`:
@@ -101,6 +109,7 @@ Följande inställningar kan konfigureras i filen `system/extensions/yellow-syst
 `FeedLocation` = plats för feed  
 `FeedFileXml` = filnamn för RSS feed  
 `FeedPaginationLimit` = antal inlägg att visa per sida, 0 för obegränsad  
+`FeedRecentChanges` = layouter att visa i feeden, kommaseparerade  
 
 Följande filer kan anpassas:
 
