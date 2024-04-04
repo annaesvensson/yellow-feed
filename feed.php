@@ -2,7 +2,7 @@
 // Feed extension, https://github.com/annaesvensson/yellow-feed
 
 class YellowFeed {
-    const VERSION = "0.8.25";
+    const VERSION = "0.9.1";
     public $yellow;         // access to API
     
     // Handle initialisation
