@@ -2,7 +2,7 @@
 // Feed extension, https://github.com/annaesvensson/yellow-feed
 
 class YellowFeed {
-    const VERSION = "0.9.1";
+    const VERSION = "0.9.2";
     public $yellow;         // access to API
     
     // Handle initialisation
@@ -17,7 +17,7 @@ class YellowFeed {
     // Handle page layout
     public function onParsePageLayout($page, $name) {
         if ($name=="feed") {
-            $pages = $this->yellow->content->index(false, false);
+            $pages = $this->yellow->content->index();
             if ($this->yellow->system->get("feedRecentChanges")!="auto") {
                 $layouts = preg_split("/\s*,\s*/", $this->yellow->system->get("feedRecentChanges"));
                 foreach ($pages as $pageFeed) {
