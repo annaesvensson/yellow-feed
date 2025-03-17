@@ -12,7 +12,7 @@ Feed with recent changes.
 
 ## How to use a feed
 
-The feed is available on your website as `http://website/feed/` and `http://website/feed/page:feed.xml`. The first link is the human readable feed and the second link is a machine readable feed, commonly known as an RSS feed. The feed is for the entire website, only visible pages are included.
+The feed is available on your website as `http://website/feed/` and `http://website/feed/page:feed.xml`. The first link is a human readable feed and the second link is a machine readable feed, commonly known as an RSS feed. It's a list of recent changes for the entire website, only visible pages are included.
 
 If you don't want that a page is visible, set `Status: unlisted` in the [page settings](https://github.com/annaesvensson/yellow-core#settings-page) at the top of a page.
 
