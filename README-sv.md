@@ -12,7 +12,7 @@ Feed med senaste ändringarna
 
 ## Hur man använder en feed
 
-Feeden finns tillgängligt på din webbplats som `http://website/feed/` och `http://website/feed/page:feed.xml`. Den första länken är en mänskligt läsbar feed och den andra länken är en maskinläsbar feed, allmänt känt som en RSS feed. Feeden är för hela webbplatsen, endast synliga sidor ingår.
+Feeden finns tillgängligt på din webbplats som `http://website/feed/` och `http://website/feed/page:feed.xml`. Den första länken är en mänskligt läsbar feed och den andra länken är en maskinläsbar feed, allmänt känt som en RSS feed. Det är en lista över senaste ändringarna på hela webbplatsen, endast synliga sidor ingår.
 
 Om du inte vill att en sida ska synas, ställ in `Status: unlisted` i [sidinställningar](https://github.com/annaesvensson/yellow-core/tree/main/README-sv.md#inställningar-page) högst upp på en sida.
 
