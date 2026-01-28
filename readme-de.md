@@ -1,8 +1,6 @@
-<p align="right"><a href="readme-de.md">Deutsch</a> &nbsp; <a href="readme.md">English</a> &nbsp; <a href="readme-sv.md">Svenska</a></p>
-
 # Feed 0.9.3
 
-Feed mit letzten Änderungen.
+Feed mit letzten Änderungen. Entwickelt von Anna Svensson.
 
 <p align="center"><img src="screenshot.png" alt="Bildschirmfoto"></p>
 
@@ -117,6 +115,4 @@ Die folgenden Dateien können angepasst werden:
 `system/layouts/feed.html` = Layoutdatei für Feed  
 `system/layouts/header.html` = Layoutdatei für Standard-HTML-Header  
 
-## Entwickler
-
-Anna Svensson. [Hilfe finden](https://datenstrom.se/de/yellow/help/).
+Hast du Fragen? [Hilfe finden](https://datenstrom.se/de/yellow/help/).
