@@ -1,4 +1,4 @@
-# Feed 0.9.3
+# Feed 1.0.1
 
 Feed med senaste ändringarna. Utvecklad av Anna Svensson.
 

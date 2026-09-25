@@ -1,4 +1,4 @@
-# Feed 0.9.3
+# Feed 1.0.1
 
 Feed with recent changes. Developed by Anna Svensson.
 
