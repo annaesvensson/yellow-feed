@@ -16,7 +16,7 @@ If you don't want that a page is visible, set `Status: unlisted` in the [page se
 
 ## How to customise a feed
 
-If you don't want to list the entire website in a feed, you can use different filters to customise a feed. You can also change the definition of recent changes. To make a blog feed open file `system/extensions/yellow-system.ini` and change `FeedRecentChanges: blog`. To make a wiki feed open file `system/extensions/yellow-system.ini` and change `FeedRecentChanges: wiki, wiki-start`.
+If you don't want to list the entire website in a feed, you can use different filters to customise a feed. The `author:` filter shows pages by a specific author. The `language:` filter shows pages in a specific language. The `tag:` filter shows pages with a specific tag. The `folder:` filter shows pages in a specific folder. You can also change the type of a feed in the settings. To make a blog feed open file `system/extensions/yellow-system.ini` and change `FeedRecentChanges: blog`. To make a wiki feed open file `system/extensions/yellow-system.ini` and change `FeedRecentChanges: wiki, wiki-start`.
 
 ## Examples
 
@@ -48,7 +48,7 @@ Content file with link to feed, by a specific author:
     [See recent changes by Datenstrom](/feed/author:datenstrom/). 
     [RSS feed for Datenstrom](/feed/author:datenstrom/page:feed.xml).
 
-Content file with link to feed, for a specific tag:
+Content file with link to feed, with a specific tag:
 
     ---
     Title: Example page
@@ -76,7 +76,16 @@ Content file with link to feed, in a specific folder:
     [See recent changes in help](/feed/folder:help/). 
     [RSS feed for help](/feed/folder:help/page:feed.xml).
 
-Configuring different filters in the settings:
+Content file with unlisted page:
+
+    ---
+    Title: Unlisted page
+    Status: unlisted
+    ---
+    This page is not visible in the feed.
+
+
+Configuring different types of feeds in the settings:
 
 ```
 FeedRecentChanges: auto

@@ -16,7 +16,7 @@ Om du inte vill att en sida ska synas, ställ in `Status: unlisted` i [sidinstä
 
 ## Hur man anpassar en feed
 
-Om du inte vill lista hela webbplatsen i feeden, kan du använda olika filter för att anpassa feeden. Du kan också ändra definitionen av senaste ändringarna. För att skapa en bloggfeed öppna filen `system/extensions/yellow-system.ini` och ändra `FeedRecentChanges: blog`. För att skapa en wikifeed öppna filen `system/extensions/yellow-system.ini` och ändra `FeedRecentChanges: wiki, wiki-start`.
+Om du inte vill lista hela webbplatsen i feeden, kan du använda olika filter för att anpassa feeden. Filtret `author:` visar sidor av en specifik författare. Filtret `language:` visar sidor på ett specifikt språk. Filtret `tag:` visar sidor med en specifik tagg. Filtret `folder:` visar sidor i en specifik mapp. Du kan också ändra typen av feed i inställningarna. För att skapa en bloggfeed öppna filen `system/extensions/yellow-system.ini` och ändra `FeedRecentChanges: blog`. För att skapa en wikifeed öppna filen `system/extensions/yellow-system.ini` och ändra `FeedRecentChanges: wiki, wiki-start`.
 
 ## Exempel
 
@@ -48,7 +48,7 @@ Innehållsfil med länk till feed, av en specifik författare:
     [Se senaste ändringarna av Datenstrom](/feed/author:datenstrom/). 
     [RSS feed för Datenstrom](/feed/author:datenstrom/page:feed.xml).
 
-Innehållsfil med länk till feed, för en specifik tagg:
+Innehållsfil med länk till feed, med en specifik tagg:
 
     ---
     Title: Exempelsida
@@ -76,7 +76,15 @@ Innehållsfil med länk till feed, i en specifik mapp:
     [Se senaste ändringarna i hjälp](/feed/folder:help/). 
     [RSS feed for hjälp](/feed/folder:help/page:feed.xml).
 
-Konfigurera olika filter i inställningar:
+Innehållsfil med olistad sida:
+
+    ---
+    Title: Olistad sida
+    Status: unlisted
+    ---
+    Den här sidan är inte synlig i feeden.
+
+Konfigurera olika typer av feed i inställningar:
 
 ```
 FeedRecentChanges: auto

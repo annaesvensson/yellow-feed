@@ -16,7 +16,7 @@ Falls du nicht willst dass eine Seite sichtbar ist, kannst du `Status: unlisted`
 
 ## Wie man einen Feed anpasst
 
-Falls du nicht die gesamte Webseite im Feed auflisten willst, kannst du unterschiedliche Filter benutzen um den Feed anzupassen. Du kannst auch die Definition von letzten Änderungen ändern. Um einen Blog-Feed zu machen, öffne die Datei `system/extensions/yellow-system.ini` und ändere `FeedRecentChanges: blog`. Um einen Wiki-Feed zu machen, öffne die Datei `system/extensions/yellow-system.ini` und ändere `FeedRecentChanges: wiki, wiki-start`. 
+Falls du nicht die gesamte Webseite im Feed auflisten willst, kannst du unterschiedliche Filter benutzen um den Feed anzupassen. Der Filter `author:` zeigt Seiten von einem bestimmten Autor. Der Filter `language:` zeigt Seiten in einer bestimmten Sprache. Der Filter `tag:` zeigt Seiten mit einem bestimmten Tag. Der Filter `folder:` zeigt Seiten in einem bestimmten Verzeichnis. Du kannst auch die Art des Feeds in den Einstellungen ändern. Um einen Blog-Feed zu machen, öffne die Datei `system/extensions/yellow-system.ini` und ändere `FeedRecentChanges: blog`. Um einen Wiki-Feed zu machen, öffne die Datei `system/extensions/yellow-system.ini` und ändere `FeedRecentChanges: wiki, wiki-start`. 
 
 ## Beispiele
 
@@ -48,7 +48,7 @@ Inhaltsdatei mit Link zum Feed, von einem bestimmter Autor:
     [Letzte Änderungen von Datenstrom anzeigen](/feed/author:datenstrom/). 
     [RSS-Feed für Datenstrom](/feed/author:datenstrom/page:feed.xml).
 
-Inhaltsdatei mit Link zum Feed, für einen bestimmten Tag:
+Inhaltsdatei mit Link zum Feed, mit einen bestimmten Tag:
 
     ---
     Title: Beispielseite
@@ -76,7 +76,15 @@ Inhaltsdatei mit Link zum Feed, in einen bestimmten Verzeichnis:
     [Letzte Änderungen in Hilfe anzeigen](/feed/folder:help/). 
     [RSS-Feed für Hilfe](/feed/folder:help/page:feed.xml).
 
-Verschiedene Filter in den Einstellungen festlegen:
+Inhaltsdatei mit ungelisteter Seite:
+
+    ---
+    Title: Ungelistete Seite
+    Status: unlisted
+    ---
+    Diese Seite ist im Feed nicht sichtbar.
+
+Verschiedene Arten von Feeds in den Einstellungen festlegen:
 
 ```
 FeedRecentChanges: auto
