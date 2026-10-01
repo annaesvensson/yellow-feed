@@ -1,4 +1,4 @@
-# Feed 1.0.1
+# Feed 1.0.2
 
 Feed med senaste ändringarna. Utvecklad av Anna Svensson.
 
@@ -10,7 +10,7 @@ Feed med senaste ändringarna. Utvecklad av Anna Svensson.
 
 ## Hur man använder en feed
 
-Feeden finns tillgängligt på din webbplats som `http://website/feed/` och `http://website/feed/page:feed.xml`. Den första länken är en mänskligt läsbar feed och den andra länken är en maskinläsbar feed, allmänt känt som en RSS feed. Det är en lista över senaste ändringarna på hela webbplatsen, endast synliga sidor ingår.
+Feeden finns tillgängligt på din webbplats som `http://website/feed/` och `http://website/feed.xml`. Den första länken är en mänskligt läsbar feed och den andra länken är en maskinläsbar feed, allmänt känt som en RSS feed. Det är en lista över senaste ändringarna på hela webbplatsen, endast synliga sidor ingår.
 
 Om du inte vill att en sida ska synas, ställ in `Status: unlisted` i [sidinställningar](https://github.com/annaesvensson/yellow-core/tree/main/readme-sv.md#inställningar-page) högst upp på en sida.
 
@@ -32,7 +32,7 @@ Innehållsfil med länk till feed:
     in culpa qui officia deserunt mollit anim id est laborum.
     
     [Se senaste ändringarna](/feed/). 
-    [RSS feed](/feed/page:feed.xml).
+    [RSS feed](/feed.xml).
 
 Innehållsfil med länk till feed, av en specifik författare:
 
@@ -46,7 +46,7 @@ Innehållsfil med länk till feed, av en specifik författare:
     in culpa qui officia deserunt mollit anim id est laborum.
 
     [Se senaste ändringarna av Datenstrom](/feed/author:datenstrom/). 
-    [RSS feed](/feed/author:datenstrom/page:feed.xml).
+    [RSS feed för Datenstrom](/feed/author:datenstrom/page:feed.xml).
 
 Innehållsfil med länk till feed, för en specifik tagg:
 
@@ -60,7 +60,7 @@ Innehållsfil med länk till feed, för en specifik tagg:
     in culpa qui officia deserunt mollit anim id est laborum.
 
     [Se senaste ändringarna för exempel](/feed/tag:exempel/). 
-    [RSS feed](/feed/tag:example/page:feed.xml).
+    [RSS feed for exempel](/feed/tag:example/page:feed.xml).
 
 Innehållsfil med länk till feed, i en specifik mapp:
 
@@ -74,23 +74,7 @@ Innehållsfil med länk till feed, i en specifik mapp:
     in culpa qui officia deserunt mollit anim id est laborum.
 
     [Se senaste ändringarna i hjälp](/feed/folder:help/). 
-    [RSS feed](/feed/folder:help/page:feed.xml).
-
-Layoutfil med länk till feed, i en specifik mapp:
-
-    <!DOCTYPE html>
-    <html lang="<?php echo $this->yellow->page->getHtml("language") ?>">
-    <head>
-    <title><?php echo $this->yellow->page->getHtml("titleHeader") ?></title>
-    <meta charset="utf-8" />
-    <meta name="description" content="<?php echo $this->yellow->page->getHtml("description") ?>" />
-    <meta name="author" content="<?php echo $this->yellow->page->getHtml("author") ?>" />
-    <meta name="generator" content="Datenstrom Yellow" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <?php echo $this->yellow->page->getExtraHtml("header") ?>
-    <link rel="alternate" type="application/rss+xml" href="<?php echo $this->yellow->page->getBase(true)."/feed/folder:help/page:feed.xml" ?>" title="<?php echo "Hjälp - ".$this->yellow->page->getHtml("sitename") ?>" />
-    </head>
-    ...
+    [RSS feed for hjälp](/feed/folder:help/page:feed.xml).
 
 Konfigurera olika filter i inställningar:
 
@@ -106,13 +90,12 @@ FeedRecentChanges: wiki, wiki-start
 Följande inställningar kan konfigureras i filen `system/extensions/yellow-system.ini`:
 
 `FeedLocation` = plats för feed  
-`FeedFileXml` = filnamn för RSS feed  
+`FeedXmlLocation` = plats för feed som RSS feed  
 `FeedPaginationLimit` = antal inlägg att visa per sida, 0 för obegränsad  
 `FeedRecentChanges` = layouter att visa i feeden, `auto` för automatisk detektering, kommaseparerade  
 
 Följande filer kan anpassas:
 
 `system/layouts/feed.html` = layoutfil för feed  
-`system/layouts/header.html` = layoutfil för standard HTML-header  
 
 Har du några frågor? [Få hjälp](https://datenstrom.se/sv/yellow/help/).

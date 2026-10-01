@@ -2,16 +2,30 @@
 // Feed extension, https://github.com/annaesvensson/yellow-feed
 
 class YellowFeed {
-    const VERSION = "1.0.1";
+    const VERSION = "1.0.2";
     public $yellow;         // access to API
     
     // Handle initialisation
     public function onLoad($yellow) {
         $this->yellow = $yellow;
         $this->yellow->system->setDefault("feedLocation", "/feed/");
-        $this->yellow->system->setDefault("feedFileXml", "feed.xml");
+        $this->yellow->system->setDefault("feedXmlLocation", "/feed.xml");
         $this->yellow->system->setDefault("feedPaginationLimit", "30");
         $this->yellow->system->setDefault("feedRecentChanges", "auto");
+    }
+    
+    // Handle request
+    public function onRequest($scheme, $address, $base, $location, $fileName) {
+        $statusCode = 0;
+        if ($this->isFeedXmlLocation($location)) {
+            $this->yellow->page->fileName = $this->yellow->lookup->findFileFromContentLocation($this->yellow->content->getHomeLocation($location), true).basename($this->yellow->system->get("feedXmlLocation"));
+            $this->yellow->page->parseMeta("", 200);
+            $this->yellow->language->set($this->yellow->page->get("language"));
+            $this->onParsePageLayout($this->yellow->page, "feed");
+            $this->yellow->page->setHeader("Last-Modified", $this->yellow->page->getLastModified(true));
+            $statusCode = $this->yellow->sendData($this->yellow->page->statusCode, $this->yellow->page->headerData, $this->yellow->page->outputData);
+        }
+        return $statusCode;
     }
 
     // Handle page layout
@@ -47,20 +61,26 @@ class YellowFeed {
                 $pageFeed->set("feedGroup", $feedGroup);
             }
             $pages->sort("feedGroup", false);
-            if ($this->isRequestXml($page)) {
+            if ($this->isFeedXmlLocation($page->location, $page->getRequest("page"))) {
                 $paginationLimit = $this->yellow->system->get("feedPaginationLimit");
                 if ($paginationLimit==0 || $paginationLimit>100) $paginationLimit = 100;
                 $pages->limit($paginationLimit);
-                $title = !is_array_empty($pagesFilter) ? implode(" ", $pagesFilter)." - ".$this->yellow->page->get("sitename") : $this->yellow->page->get("sitename");
-                $this->yellow->page->setLastModified($pages->getModified());
-                $this->yellow->page->setHeader("Content-Type", "application/rss+xml; charset=utf-8");
+                if (!is_array_empty($pagesFilter) && $pages->isEmpty()) $page->error(404);
+                if (!is_array_empty($pagesFilter)) {
+                    $text = implode(" ", $pagesFilter);
+                    $page->set("title", $text." - ".$this->yellow->system->get("sitename"));
+                } else {
+                    $page->set("title", $this->yellow->system->get("sitename"));
+                }
+                $page->setLastModified($pages->getModified());
+                $page->setHeader("Content-Type", "application/rss+xml; charset=utf-8");
                 $output = "<?xml version=\"1.0\" encoding=\"utf-8\"\077>\r\n";
                 $output .= "<rss version=\"2.0\" xmlns:content=\"http://purl.org/rss/1.0/modules/content/\" xmlns:dc=\"http://purl.org/dc/elements/1.1/\">\r\n";
                 $output .= "<channel>\r\n";
-                $output .= "<title>".htmlspecialchars($title)."</title>\r\n";
-                $output .= "<link>".$this->yellow->page->scheme."://".$this->yellow->page->address.$this->yellow->page->base."/"."</link>\r\n";
-                $output .= "<description>".$this->yellow->page->getHtml("description")."</description>\r\n";
-                $output .= "<language>".$this->yellow->page->getHtml("language")."</language>\r\n";
+                $output .= "<title>".$page->getHtml("title")."</title>\r\n";
+                $output .= "<link>".$page->scheme."://".$page->address.$page->base."/"."</link>\r\n";
+                $output .= "<description>".$this->yellow->language->getTextHtml("feedDescription")."</description>\r\n";
+                $output .= "<language>".$page->getHtml("language")."</language>\r\n";
                 foreach ($pages as $pageFeed) {
                     $timestamp = strtotime($pageFeed->get($pageFeed->isExisting("published") ? "published" : "modified"));
                     $content = $this->yellow->toolbox->createTextDescription($pageFeed->getContentHtml(), 0, false, "<!--more-->", "<a href=\"".$pageFeed->getUrl()."\">".$this->yellow->language->getTextHtml("blogMore")."</a>");
@@ -76,16 +96,16 @@ class YellowFeed {
                 }
                 $output .= "</channel>\r\n";
                 $output .= "</rss>\r\n";
-                $this->yellow->page->setOutput($output);
+                $page->setOutput($output);
             } else {
                 if (!is_array_empty($pagesFilter)) {
                     $text = implode(" ", $pagesFilter);
-                    $this->yellow->page->set("titleHeader", $text." - ".$this->yellow->page->get("sitename"));
-                    $this->yellow->page->set("titleContent", $this->yellow->page->get("title").": ".$text);
-                    $this->yellow->page->set("title", $this->yellow->page->get("title").": ".$text);
+                    $page->set("titleHeader", $text." - ".$page->get("sitename"));
+                    $page->set("titleContent", $page->get("title").": ".$text);
+                    $page->set("title", $page->get("title").": ".$text);
                 }
-                $this->yellow->page->setPages("feed", $pages);
-                $this->yellow->page->setLastModified($pages->getModified());
+                $page->setPages("feed", $pages);
+                $page->setLastModified($pages->getModified());
             }
         }
     }
@@ -94,15 +114,20 @@ class YellowFeed {
     public function onParsePageExtra($page, $name) {
         $output = null;
         if ($name=="header") {
-            $locationFeed = $this->yellow->system->get("coreServerBase").$this->yellow->system->get("feedLocation");
-            $locationFeed .= $this->yellow->lookup->normaliseArguments("page:".$this->yellow->system->get("feedFileXml"));
-            $output = "<link rel=\"alternate\" type=\"application/rss+xml\" href=\"$locationFeed\" title=\"".$this->yellow->page->getHtml("sitename")."\" />\n";
+            $feedXmlLocation = $this->yellow->system->get("coreServerBase").$this->getFeedXmlLocation($page->location);
+            $output = "<link rel=\"alternate\" type=\"application/rss+xml\" href=\"$feedXmlLocation\" title=\"".$page->getHtml("sitename")."\" />\n";
         }
         return $output;
     }
-
-    // Check if XML requested
-    public function isRequestXml($page) {
-        return $page->getRequest("page")==$this->yellow->system->get("feedFileXml");
+    
+    // Return XML location
+    public function getFeedXmlLocation($location) {
+        return rtrim($this->yellow->content->getHomeLocation($location), "/").$this->yellow->system->get("feedXmlLocation");
+    }
+    
+    // Check if XML format requested
+    public function isFeedXmlLocation($location, $request = "") {
+        $feedXmlLocation = $this->getFeedXmlLocation($location);
+        return $location==$feedXmlLocation || $request==basename($feedXmlLocation);
     }
 }

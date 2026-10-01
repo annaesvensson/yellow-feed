@@ -1,4 +1,4 @@
-# Feed 1.0.1
+# Feed 1.0.2
 
 Feed mit letzten Änderungen. Entwickelt von Anna Svensson.
 
@@ -10,7 +10,7 @@ Feed mit letzten Änderungen. Entwickelt von Anna Svensson.
 
 ## Wie man einen Feed benutzt
 
-Der Feed ist auf deiner Webseite vorhanden als `http://website/feed/` und `http://website/feed/page:feed.xml`. Der erste Link ist ein menschenlesbarer Feed und der zweite Link ist ein maschinenlesbarer Feed, der gemeinhin als RSS-Feed bekannt ist. Es ist eine Liste der letzten Änderungen auf der gesamten Webseite, nur sichtbare Seiten sind enthalten.
+Der Feed ist auf deiner Webseite vorhanden als `http://website/feed/` und `http://website/feed.xml`. Der erste Link ist ein menschenlesbarer Feed und der zweite Link ist ein maschinenlesbarer Feed, der gemeinhin als RSS-Feed bekannt ist. Es ist eine Liste der letzten Änderungen auf der gesamten Webseite, nur sichtbare Seiten sind enthalten.
 
 Falls du nicht willst dass eine Seite sichtbar ist, kannst du `Status: unlisted` in den [Seiteneinstellungen](https://github.com/annaesvensson/yellow-core/tree/main/readme-de.md#einstellungen-seite) ganz oben auf einer Seite festlegen.
 
@@ -32,7 +32,7 @@ Inhaltsdatei mit Link zum Feed:
     in culpa qui officia deserunt mollit anim id est laborum.
     
     [Letzte Änderungen anzeigen](/feed/). 
-    [RSS-Feed](/feed/page:feed.xml).
+    [RSS-Feed](/feed.xml).
 
 Inhaltsdatei mit Link zum Feed, von einem bestimmter Autor:
 
@@ -46,7 +46,7 @@ Inhaltsdatei mit Link zum Feed, von einem bestimmter Autor:
     in culpa qui officia deserunt mollit anim id est laborum.
     
     [Letzte Änderungen von Datenstrom anzeigen](/feed/author:datenstrom/). 
-    [RSS-Feed](/feed/author:datenstrom/page:feed.xml).
+    [RSS-Feed für Datenstrom](/feed/author:datenstrom/page:feed.xml).
 
 Inhaltsdatei mit Link zum Feed, für einen bestimmten Tag:
 
@@ -60,7 +60,7 @@ Inhaltsdatei mit Link zum Feed, für einen bestimmten Tag:
     in culpa qui officia deserunt mollit anim id est laborum.
     
     [Letzte Änderungen für Beispiel anzeigen](/feed/tag:beispiel/). 
-    [RSS-Feed](/feed/tag:beispiel/page:feed.xml).
+    [RSS-Feed für Beispiele](/feed/tag:beispiel/page:feed.xml).
 
 Inhaltsdatei mit Link zum Feed, in einen bestimmten Verzeichnis:
 
@@ -74,23 +74,7 @@ Inhaltsdatei mit Link zum Feed, in einen bestimmten Verzeichnis:
     in culpa qui officia deserunt mollit anim id est laborum.
     
     [Letzte Änderungen in Hilfe anzeigen](/feed/folder:help/). 
-    [RSS-Feed](/feed/folder:help/page:feed.xml).
-
-Layoutdatei mit Link zum Feed, in einen bestimmten Verzeichnis:
-
-    <!DOCTYPE html>
-    <html lang="<?php echo $this->yellow->page->getHtml("language") ?>">
-    <head>
-    <title><?php echo $this->yellow->page->getHtml("titleHeader") ?></title>
-    <meta charset="utf-8" />
-    <meta name="description" content="<?php echo $this->yellow->page->getHtml("description") ?>" />
-    <meta name="author" content="<?php echo $this->yellow->page->getHtml("author") ?>" />
-    <meta name="generator" content="Datenstrom Yellow" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <?php echo $this->yellow->page->getExtraHtml("header") ?>
-    <link rel="alternate" type="application/rss+xml" href="<?php echo $this->yellow->page->getBase(true)."/feed/folder:help/page:feed.xml" ?>" title="<?php echo "Hilfe - ".$this->yellow->page->getHtml("sitename") ?>" />
-    </head>
-    ...
+    [RSS-Feed für Hilfe](/feed/folder:help/page:feed.xml).
 
 Verschiedene Filter in den Einstellungen festlegen:
 
@@ -106,13 +90,12 @@ FeedRecentChanges: wiki, wiki-start
 Die folgenden Einstellungen können in der Datei `system/extensions/yellow-system.ini` vorgenommen werden:
 
 `FeedLocation` = Ort des Feed  
-`FeedFileXml` = Dateiname für RSS-Feed  
+`FeedXmlLocation` = Ort des Feed als RSS-Feed  
 `FeedPaginationLimit` = Anzahl der Einträge pro Seite, 0 für unbegrenzt  
 `FeedRecentChanges` = Layouts im Feed, `auto` für automatische Erkennung, durch Komma getrennt   
 
 Die folgenden Dateien können angepasst werden:
 
 `system/layouts/feed.html` = Layoutdatei für Feed  
-`system/layouts/header.html` = Layoutdatei für Standard-HTML-Header  
 
 Hast du Fragen? [Hilfe finden](https://datenstrom.se/de/yellow/help/).
