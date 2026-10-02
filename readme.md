@@ -60,7 +60,7 @@ Content file with link to feed, with a specific tag:
     in culpa qui officia deserunt mollit anim id est laborum.
 
     [See recent changes for example](/feed/tag:example/). 
-    [RSS feed for examples](/feed/tag:example/page:feed.xml).
+    [RSS feed for example](/feed/tag:example/page:feed.xml).
 
 Content file with link to feed, in a specific folder:
 

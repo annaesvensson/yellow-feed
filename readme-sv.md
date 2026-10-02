@@ -60,7 +60,7 @@ Innehållsfil med länk till feed, med en specifik tagg:
     in culpa qui officia deserunt mollit anim id est laborum.
 
     [Se senaste ändringarna för exempel](/feed/tag:exempel/). 
-    [RSS feed for exempel](/feed/tag:example/page:feed.xml).
+    [RSS feed för exempel](/feed/tag:exempel/page:feed.xml).
 
 Innehållsfil med länk till feed, i en specifik mapp:
 
@@ -74,7 +74,7 @@ Innehållsfil med länk till feed, i en specifik mapp:
     in culpa qui officia deserunt mollit anim id est laborum.
 
     [Se senaste ändringarna i hjälp](/feed/folder:help/). 
-    [RSS feed for hjälp](/feed/folder:help/page:feed.xml).
+    [RSS feed för hjälp](/feed/folder:help/page:feed.xml).
 
 Innehållsfil med olistad sida:
 

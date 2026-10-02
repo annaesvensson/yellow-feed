@@ -60,7 +60,7 @@ Inhaltsdatei mit Link zum Feed, mit einen bestimmten Tag:
     in culpa qui officia deserunt mollit anim id est laborum.
     
     [Letzte Änderungen für Beispiel anzeigen](/feed/tag:beispiel/). 
-    [RSS-Feed für Beispiele](/feed/tag:beispiel/page:feed.xml).
+    [RSS-Feed für Beispiel](/feed/tag:beispiel/page:feed.xml).
 
 Inhaltsdatei mit Link zum Feed, in einen bestimmten Verzeichnis:
 
