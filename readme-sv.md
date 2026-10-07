@@ -1,4 +1,4 @@
-# Feed 1.0.2
+# Feed 1.0.3
 
 Feed med senaste ändringarna. Utvecklad av Anna Svensson.
 
@@ -97,7 +97,6 @@ FeedRecentChanges: wiki, wiki-start
 
 Följande inställningar kan konfigureras i filen `system/extensions/yellow-system.ini`:
 
-`FeedLocation` = plats för feed  
 `FeedXmlLocation` = plats för feed som maskinläsbart XML format  
 `FeedPaginationLimit` = antal inlägg att visa per sida, 0 för obegränsad  
 `FeedRecentChanges` = layouter att visa i feeden, `auto` för automatisk detektering, kommaseparerade  

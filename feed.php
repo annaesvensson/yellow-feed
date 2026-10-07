@@ -2,13 +2,12 @@
 // Feed extension, https://github.com/annaesvensson/yellow-feed
 
 class YellowFeed {
-    const VERSION = "1.0.2";
+    const VERSION = "1.0.3";
     public $yellow;         // access to API
     
     // Handle initialisation
     public function onLoad($yellow) {
         $this->yellow = $yellow;
-        $this->yellow->system->setDefault("feedLocation", "/feed/");
         $this->yellow->system->setDefault("feedXmlLocation", "/feed.xml");
         $this->yellow->system->setDefault("feedPaginationLimit", "30");
         $this->yellow->system->setDefault("feedRecentChanges", "auto");

@@ -1,4 +1,4 @@
-# Feed 1.0.2
+# Feed 1.0.3
 
 Feed with recent changes. Developed by Anna Svensson.
 
@@ -98,8 +98,7 @@ FeedRecentChanges: wiki, wiki-start
 
 The following settings can be configured in file `system/extensions/yellow-system.ini`:
 
-`FeedLocation` = feed location  
-`FeedXmlLocation` = feed location  s machine readable XML format  
+`FeedXmlLocation` = feed location as machine readable XML format  
 `FeedPaginationLimit` = number of entries to show per page, 0 for unlimited  
 `FeedRecentChanges` = layout(s) to show in the feed, `auto` for automatic detection, comma separated  
 
