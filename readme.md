@@ -99,7 +99,7 @@ FeedRecentChanges: wiki, wiki-start
 The following settings can be configured in file `system/extensions/yellow-system.ini`:
 
 `FeedLocation` = feed location  
-`FeedXmlLocation` = feed location as RSS feed  
+`FeedXmlLocation` = feed location  s machine readable XML format  
 `FeedPaginationLimit` = number of entries to show per page, 0 for unlimited  
 `FeedRecentChanges` = layout(s) to show in the feed, `auto` for automatic detection, comma separated  
 
