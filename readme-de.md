@@ -99,7 +99,7 @@ Die folgenden Einstellungen können in der Datei `system/extensions/yellow-syste
 
 `FeedXmlLocation` = Ort des Feed als maschinenlesbares XML-Format  
 `FeedPaginationLimit` = Anzahl der Einträge pro Seite, 0 für unbegrenzt  
-`FeedRecentChanges` = Layouts im Feed, `auto` für automatische Erkennung, durch Komma getrennt   
+`FeedRecentChanges` = Layouts im Feed, `auto` für automatische Erkennung   
 
 Die folgenden Dateien können angepasst werden:
 

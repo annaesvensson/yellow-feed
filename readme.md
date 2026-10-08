@@ -100,7 +100,7 @@ The following settings can be configured in file `system/extensions/yellow-syste
 
 `FeedXmlLocation` = feed location as machine readable XML format  
 `FeedPaginationLimit` = number of entries to show per page, 0 for unlimited  
-`FeedRecentChanges` = layout(s) to show in the feed, `auto` for automatic detection, comma separated  
+`FeedRecentChanges` = layout(s) to show in the feed, `auto` for automatic detection  
 
 The following files can be customised:
 

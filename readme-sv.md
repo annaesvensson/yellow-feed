@@ -99,7 +99,7 @@ Följande inställningar kan konfigureras i filen `system/extensions/yellow-syst
 
 `FeedXmlLocation` = plats för feed som maskinläsbart XML format  
 `FeedPaginationLimit` = antal inlägg att visa per sida, 0 för obegränsad  
-`FeedRecentChanges` = layouter att visa i feeden, `auto` för automatisk detektering, kommaseparerade  
+`FeedRecentChanges` = layouter att visa i feeden, `auto` för automatisk detektering  
 
 Följande filer kan anpassas:
 
