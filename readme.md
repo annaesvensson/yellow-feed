@@ -18,6 +18,8 @@ If you don't want that a page is visible, set `Status: unlisted` in the [page se
 
 If you don't want to list the entire website in a feed, you can use different filters to customise a feed. The `author:` filter shows pages by a specific author. The `language:` filter shows pages in a specific language. The `tag:` filter shows pages with a specific tag. The `folder:` filter shows pages in a specific folder. You can also change the type of a feed in the settings. To make a blog feed open file `system/extensions/yellow-system.ini` and change `FeedRecentChanges: blog`. To make a wiki feed open file `system/extensions/yellow-system.ini` and change `FeedRecentChanges: wiki, wiki-start`.
 
+You can customise the appearance of your website with HTML and CSS. The HTML for the human readable feed can be customised in file `system/layouts/feed.html`, the CSS can be customised in the current theme. [Learn more about HTML and CSS](https://datenstrom.se/yellow/help/how-to-customise-html-and-css).
+
 ## Examples
 
 Content file with link to feed:
@@ -104,6 +106,6 @@ The following settings can be configured in file `system/extensions/yellow-syste
 
 The following files can be customised:
 
-`system/layouts/feed.html` = layout file for feed  
+`system/layouts/feed.html` = layout file for human readable feed  
 
 Do you have questions? [Get help](https://datenstrom.se/yellow/help/).

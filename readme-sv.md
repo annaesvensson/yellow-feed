@@ -18,6 +18,8 @@ Om du inte vill att en sida ska synas, ställ in `Status: unlisted` i [sidinstä
 
 Om du inte vill lista hela webbplatsen i feeden, kan du använda olika filter för att anpassa feeden. Filtret `author:` visar sidor av en specifik författare. Filtret `language:` visar sidor på ett specifikt språk. Filtret `tag:` visar sidor med en specifik tagg. Filtret `folder:` visar sidor i en specifik mapp. Du kan också ändra typen av feed i inställningarna. För att skapa en bloggfeed öppna filen `system/extensions/yellow-system.ini` och ändra `FeedRecentChanges: blog`. För att skapa en wikifeed öppna filen `system/extensions/yellow-system.ini` och ändra `FeedRecentChanges: wiki, wiki-start`.
 
+Du kan anpassa utseendet på din webbplats med HTML och CSS. HTML för maskinläsbar flöde kan anpassas i filen `system/layouts/feed.html`, CSS kan anpassas i det aktuella temat. [Läs mer om HTML och CSS](https://datenstrom.se/sv/yellow/help/how-to-customise-html-and-css).
+
 ## Exempel
 
 Innehållsfil med länk till feed:
@@ -103,6 +105,6 @@ Följande inställningar kan konfigureras i filen `system/extensions/yellow-syst
 
 Följande filer kan anpassas:
 
-`system/layouts/feed.html` = layoutfil för feed  
+`system/layouts/feed.html` = layoutfil för mänskligt läsbar feed  
 
 Har du några frågor? [Få hjälp](https://datenstrom.se/sv/yellow/help/).

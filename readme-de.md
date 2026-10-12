@@ -18,6 +18,8 @@ Falls du nicht willst dass eine Seite sichtbar ist, kannst du `Status: unlisted`
 
 Falls du nicht die gesamte Webseite im Feed auflisten willst, kannst du unterschiedliche Filter benutzen um den Feed anzupassen. Der Filter `author:` zeigt Seiten von einem bestimmten Autor. Der Filter `language:` zeigt Seiten in einer bestimmten Sprache. Der Filter `tag:` zeigt Seiten mit einem bestimmten Tag. Der Filter `folder:` zeigt Seiten in einem bestimmten Verzeichnis. Du kannst auch die Art des Feeds in den Einstellungen ändern. Um einen Blog-Feed zu machen, öffne die Datei `system/extensions/yellow-system.ini` und ändere `FeedRecentChanges: blog`. Um einen Wiki-Feed zu machen, öffne die Datei `system/extensions/yellow-system.ini` und ändere `FeedRecentChanges: wiki, wiki-start`. 
 
+Du kannst das Aussehen deiner Webseite mit HTML und CSS anpassen. Das HTML für den maschinenlesbarer Feed kann man in der Datei `system/layouts/feed.html` anpassen, das CSS kann man im aktuellen Theme anpassen. [Weitere Informationen zu HTML und CSS](https://datenstrom.se/de/yellow/help/how-to-customise-html-and-css). 
+
 ## Beispiele
 
 Inhaltsdatei mit Link zum Feed:
@@ -103,6 +105,6 @@ Die folgenden Einstellungen können in der Datei `system/extensions/yellow-syste
 
 Die folgenden Dateien können angepasst werden:
 
-`system/layouts/feed.html` = Layoutdatei für Feed  
+`system/layouts/feed.html` = Layoutdatei für menschenlesbaren Feed  
 
 Hast du Fragen? [Hilfe finden](https://datenstrom.se/de/yellow/help/).
